@@ -1,9 +1,14 @@
 export function fizzbuzz(input: number): string {
-  if (input === 3) {
-    return 'Fizz';
+  let output = '';
+  if (isMultipleOf(input, 3)) {
+    output += 'Fizz';
   }
-  if (input == 5) {
-    return 'Buzz';
+  if (isMultipleOf(input, 5)) {
+    output += 'Buzz';
   }
-  return input.toString();
+  return output === '' ? input.toString() : output;
+}
+
+function isMultipleOf(input: number, divider: number): boolean {
+  return input % divider === 0;
 }
